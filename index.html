@@ -61,17 +61,24 @@
             <p>Complete the form and tell us a little about what you are looking for.</p>
             <form onsubmit="sendMessage(event)">
     <div class="form-row">
-        <div class="form-group"><label>Full Name</label><input type="text" id="name" placeholder="Your name" required></div>
-        <div class="form-group"><label>Email</label><input type="email" id="email" placeholder="Your email" required></div>
+        <div class="form-group"><label>Full Name</label><input type="text" id="userName" placeholder="Ameeka" required></div>
+        <div class="form-group"><label>Email</label><input type="email" id="userEmail" placeholder="hello@email.com" required></div>
     </div>
-    <div class="form-group"><label>Company</label><input type="text" id="company" placeholder="Your company name"></div>
-    <div class="form-group">
-        <label>What can we help with?</label>
-        <select id="service"><option>Select a service</option><option>Web Development</option><option>App Development</option><option>UI / UX Design</option></select>
-    </div>
-    <div class="form-group"><label>Your Message</label><textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea></div>
-    <button type="submit" class="submit">Send Message →</button>
-            </form>
+    <div class="form-group"><label>Message</label><textarea id="userMsg" placeholder="Tell us about your project" required></textarea></div>
+    <button class="submit" type="submit">Send Message →</button>
+</form>
+
+<script>
+function sendMessage(e){
+  e.preventDefault();
+  let name = document.getElementById('userName').value;
+  let email = document.getElementById('userEmail').value;
+  let msg = document.getElementById('userMsg').value;
+  let subject = "New Project Enquiry from " + name;
+  let body = "Name: " + name + "%0D%0AEmail: " + email + "%0D%0AMessage: " + msg;
+  window.location.href = "mailto:hello@vipthra.com?subject=" + subject + "&body=" + body;
+}
+</script>
         </div>
         <div class="map-side">
             <iframe src="https://www.google.com/maps?q=Srinagar,Jammu+and+Kashmir,India&output=embed" loading="lazy" allowfullscreen></iframe>
